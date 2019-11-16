@@ -1,0 +1,44 @@
+DROP TABLE IF EXISTS bond_description_task;
+
+CREATE TABLE bond_description_task
+(
+	"ID" integer NOT NULL,
+	"TIME" bigint NULL,
+	"ACCRUEDINT" integer NOT NULL,
+	"ASK" integer NOT NULL,
+	"ASK_SIZE" integer NULL,
+	"ASK_SIZE_TOTAL" bigint NOT NULL,
+	"AVGE_PRCE" integer NOT NULL,
+	"BID" integer NOT NULL,
+	"BID_SIZE" bigint NOT NULL,
+	"BOARDID" text NOT NULL,
+	"BOARDNAME" text NOT NULL,
+	"BUYBACKDATE" integer NULL,
+	"BUYBACKPRICE" integer NOT NULL,
+	"CBR_LOMBARD" integer NOT NULL,
+	"CBR_PLEDGE" integer NOT NULL,
+	"CLOSE" integer NOT NULL,
+	"CPN" integer NOT NULL,
+	"CPN_DATE" bigint NOT NULL,
+	"CPN_PERIOD" integer NOT NULL,
+	"DEAL_ACC" integer NOT NULL,
+	"FACEVALUE" MONEY NOT NULL,
+	"ISIN" real NOT NULL,
+	"ISSUER" text NULL,
+	"ISSUESIZE" bigint NOT NULL,
+	"MATDATE" bigint NOT NULL,
+	"MPPRICE" integer NOT NULL,
+	"MPPRICE2" integer NOT NULL,
+	"SPREAD" integer NOT NULL,
+	"VOL_ACC" bigint NOT NULL,
+	"Y2O_ASK" smallint NOT NULL,
+	"Y2O_BID" integer NOT NULL,
+	"YEILD_ASK" integer NOT NULL,
+	"YEILD_BID" integer NOT NULL,
+	PRIMARY KEY ("ID")
+)
+	
+	WITH (
+		OIDS = FALSE
+)
+TABLESPACE pg_default;
