@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS bond_description_task;
+DROP TABLE IF EXISTS quotes_task;
 
-CREATE TABLE bond_description_task
+CREATE TABLE public.quotes_task
 (
 	"ID" integer NOT NULL,
 	"TIME" bigint NULL,
@@ -36,9 +36,8 @@ CREATE TABLE bond_description_task
 	"YEILD_ASK" integer NOT NULL,
 	"YEILD_BID" integer NOT NULL,
 	PRIMARY KEY ("ID")
-)
-	
-	WITH (
-		OIDS = FALSE
-)
-TABLESPACE pg_default;
+);
+COPY public.quotes_task
+FROM 'C:\IT\quotes_task.csv'
+DELIMETERS';' CSV HEADER ENCODING 'WIN 1251'
+
