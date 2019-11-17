@@ -103,6 +103,8 @@ CREATE TABLE public.bond_description_task
 	"NumGuarantors" smallint NOT NULL,
 
 	"EndMtyDate" date NOT NULL
+	
+	PRIMARY KEY (""ISIN, RegCode, NRDCode")
 
 );
 
