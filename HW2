@@ -3,7 +3,7 @@ import psycopg2 # драйвер для postgresql
 import getpass  # прячем параль, чтобы не писать его в параметрах
 
 conn=psycopg2.connect(user='postgres',
-                      database='postgres',
+                      database='HW',
                       host='localhost',
                       port='5432',
                       password=getpass.getpass('Insert password: ')
@@ -12,14 +12,14 @@ Insert password: ········
 Данный код для подключения с БД.
 
 2) Запрашиваем из Python необходимую информацию из таблиц bond_description и quotes
-query = """ SELECT *
+    query = """ SELECT *
             FROM (SELECT MAX("CPN") AS "CPN", "ISIN", max("BUYBACKDATE") AS "BUYBACKDATE",
                   max("BUYBACKPRICE") AS "BUYBACKPRICE"
-                  FROM bonds.quotes_task
+                  FROM public.quotes_task
                   GROUP BY "ISIN") AS cpn
             INNER JOIN(SELECT "ISINCode", "FaceValue", "HaveOffer", "AmortisedMty", 
                        "CouponPerYear", "NumCoupons", "EndMtyDate", "CouponType", "IssuerName"
-                       FROM bonds.bond_description_task
+                       FROM public.bond_description_task
                        WHERE "Status"!='Погашен') AS bonds
             ON cpn."ISIN" = bonds."ISINCode" """
           
